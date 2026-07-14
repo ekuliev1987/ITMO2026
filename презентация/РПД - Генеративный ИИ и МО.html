@@ -29,6 +29,44 @@
             page-break-after: auto;
             border-bottom: none;
         }
+        .slide.compact {
+            min-height: auto;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+        }
+        .slide.compact h1 {
+            font-size: 14pt;
+            margin-bottom: 2px;
+            border-bottom: 2px solid #4a90a4;
+            padding-bottom: 2px;
+        }
+        .slide.compact h2 {
+            font-size: 10pt;
+            margin-top: 3px;
+            margin-bottom: 2px;
+        }
+        .slide.compact .module-info {
+            padding: 2px 6px;
+            margin: 3px 0;
+            font-size: 8pt;
+        }
+        .slide.compact ul {
+            margin: 2px 0;
+            padding-left: 18px;
+        }
+        .slide.compact li {
+            margin: 1px 0;
+            font-size: 8.5pt;
+            line-height: 1.15;
+        }
+        .slide.compact .practice {
+            padding: 4px;
+            margin: 3px 0;
+        }
+        .slide.compact .footer {
+            font-size: 7pt;
+            padding-top: 5px;
+        }
         h1 {
             color: #2c5282;
             font-size: 24pt;
@@ -65,6 +103,15 @@
             padding: 15px;
             margin: 15px 0;
             border-radius: 0 8px 8px 0;
+        }
+        .info-row {
+            display: flex;
+            gap: 15px;
+            margin: 10px 0;
+        }
+        .info-row .info-box {
+            flex: 1;
+            margin: 0;
         }
         .module-info {
             display: flex;
@@ -125,16 +172,18 @@
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 15px 0;
+            margin: 10px 0;
+            font-size: 9pt;
         }
         th, td {
             border: 1px solid #cbd5e0;
-            padding: 8px;
+            padding: 4px 6px;
             text-align: left;
         }
         th {
             background: #4a5568;
             color: white;
+            font-size: 9pt;
         }
         tr:nth-child(even) {
             background: #f7fafc;
@@ -143,7 +192,7 @@
 </head>
 <body>
 
-<!-- Слайд 1: Титульный -->
+<!-- Слайд 0: Титульный -->
 <div class="slide">
     <div class="header-slide">
         <h1>ГЕНЕРАТИВНЫЙ ИСКУССТВЕННЫЙ ИНТЕЛЛЕКТ И МАШИННОЕ ОБУЧЕНИЕ</h1>
@@ -151,37 +200,148 @@
     </div>
     
     <div class="info-box">
-        <p><strong>Курс:</strong> 3-й курс, 5-й семестр</p>
-        <p><strong>Трудоёмкость:</strong> 5 ЗЕ (180 часов)</p>
-        <p><strong>Форма аттестации:</strong> экзамен</p>
+        <p><strong>Курс:</strong> 3-й курс, 5-й семестр | <strong>Трудоёмкость:</strong> 5 ЗЕ (180 часов) | <strong>Аттестация:</strong> экзамен</p>
     </div>
     
-    <div class="info-box">
-        <p><strong>Целевые компетенции КРМ:</strong></p>
-        <div>
-            <span class="tag">ML-2</span>
-            <span class="tag">ML-3</span>
-            <span class="tag">PL-1</span>
-            <span class="tag">DL-2</span>
-            <span class="tag">LLM-5</span>
-            <span class="tag">FC-2</span>
-            <span class="tag">SS-1</span>
+    <div class="info-row">
+        <div class="info-box">
+            <p style="margin-top: 0;"><strong>Целевые компетенции КРМ:</strong></p>
+            <div style="margin-top: 8px;">
+                <span class="tag">ML-2</span>
+                <span class="tag">ML-3</span>
+                <span class="tag">PL-1</span>
+                <span class="tag">DL-2</span>
+                <span class="tag">LLM-5</span>
+                <span class="tag">FC-2</span>
+                <span class="tag">SS-1</span>
+            </div>
         </div>
-    </div>
-    
-    <div class="info-box">
-        <p><strong>Основные роли:</strong></p>
-        <div>
-            <span class="tag" style="background: #ed8936;">ML Engineer</span>
-            <span class="tag" style="background: #48bb78;">AI Engineer</span>
-            <span class="tag" style="background: #9f7aea;">AI Architect</span>
-            <span class="tag" style="background: #f56565;">ML Researcher</span>
-            <span class="tag" style="background: #ed64a6;">Prompt Engineer</span>
+        <div class="info-box">
+            <p style="margin-top: 0;"><strong>Основные роли:</strong></p>
+            <div style="margin-top: 8px;">
+                <span class="tag" style="background: #ed8936;">ML Engineer</span>
+                <span class="tag" style="background: #48bb78;">AI Engineer</span>
+                <span class="tag" style="background: #9f7aea;">AI Architect</span>
+                <span class="tag" style="background: #f56565;">ML Researcher</span>
+                <span class="tag" style="background: #ed64a6;">Prompt Engineer</span>
+            </div>
         </div>
     </div>
     
     <div class="footer">
         Рабочая программа дисциплины | 2026
+    </div>
+</div>
+
+<!-- Слайд 1: Общая таблица модулей -->
+<div class="slide">
+    <h1 style="font-size: 18pt; margin-bottom: 5px;">СТРУКТУРА ДИСЦИПЛИНЫ</h1>
+    <h2 style="font-size: 12pt; margin-top: 0; margin-bottom: 10px;">Обзор модулей и планируемых результатов</h2>
+    
+    <table>
+        <tr>
+            <th style="width: 12%;">Модуль</th>
+            <th style="width: 20%;">Содержание</th>
+            <th style="width: 10%;">Форма</th>
+            <th style="width: 8%;">Объём<br>(а.ч.)</th>
+            <th style="width: 12%;">Компетенции</th>
+            <th style="width: 13%;">Индикаторы</th>
+            <th style="width: 5%;">Уровень</th>
+        </tr>
+        <tr>
+            <td><strong>1</strong>. Введение в ML и генеративный ИИ + Python</td>
+            <td>ML, типы обучения, генеративный ИИ, NumPy, Pandas, EDA</td>
+            <td>Л + П</td>
+            <td>10</td>
+            <td>ML-2, PL-1</td>
+            <td>ML-2.1, ML-2.2, PL-1.2</td>
+            <td>Б</td>
+        </tr>
+        <tr>
+            <td><strong>2</strong>. Нейронные сети</td>
+            <td>Модель нейрона, MLP, функции активации, backpropagation</td>
+            <td>Л + П</td>
+            <td>8</td>
+            <td>ML-3, DL-1</td>
+            <td>ML-3.1, DL-1.1</td>
+            <td>Б/С</td>
+        </tr>
+        <tr>
+            <td><strong>3</strong>. Автоэнкодеры и VAE</td>
+            <td>Автоэнкодеры, латентное пространство, VAE, KL-дивергенция</td>
+            <td>Л + П</td>
+            <td>10</td>
+            <td>DL-2, FC-2</td>
+            <td>DL-2.1, FC-2.1</td>
+            <td>Б/С</td>
+        </tr>
+        <tr>
+            <td><strong>4</strong>. GAN</td>
+            <td>GAN, Generator/Discriminator, DCGAN, mode collapse</td>
+            <td>Л + П</td>
+            <td>6</td>
+            <td>DL-2</td>
+            <td>DL-2.1</td>
+            <td>Б/С</td>
+        </tr>
+        <tr>
+            <td><strong>5</strong>. Трансформеры и LLM</td>
+            <td>Attention, Transformer, LLM (Llama, Mistral), PEFT, RAG-системы</td>
+            <td>Л + П</td>
+            <td>32</td>
+            <td>LLM-5, DL-2, FC-2, PL-1</td>
+            <td>LLM-5.1, 5.4, 5.5, DL-2.1, FC-2.1, 2.3, PL-1.2</td>
+            <td>Б/С</td>
+        </tr>
+        <tr>
+            <td><strong>6</strong>. Диффузионные модели</td>
+            <td>Диффузия, Stable Diffusion, генерация изображений, DreamBooth</td>
+            <td>Л + П</td>
+            <td>10</td>
+            <td>DL-2, LLM-5, FC-2</td>
+            <td>DL-2.1, LLM-5.6, 5.7, FC-2.3</td>
+            <td>Б/С</td>
+        </tr>
+        <tr>
+            <td><strong>7</strong>. AI Agents</td>
+            <td>AI Agents, ReAct, мульти-агентные системы, LangGraph, AutoGen</td>
+            <td>Л + П</td>
+            <td>8</td>
+            <td>LLM-5, FC-2, PL-1</td>
+            <td>LLM-5.1, 5.5, FC-2.1, 2.3, PL-1.2</td>
+            <td>Б/С</td>
+        </tr>
+        <tr>
+            <td><strong>8</strong>. Развёртывание и оптимизация</td>
+            <td>FastAPI, Docker, quantization, caching, мониторинг</td>
+            <td>Л + П</td>
+            <td>8</td>
+            <td>LLM-5, DL-2, PL-1</td>
+            <td>LLM-5.1, 5.5, DL-2.1, PL-1.2</td>
+            <td>Б/С</td>
+        </tr>
+        <tr>
+            <td><strong>9</strong>. Мультимодальный ИИ и этика</td>
+            <td>CLIP, GPT-4V, VQA, deepfakes, bias, этический аудит</td>
+            <td>Л + П</td>
+            <td>8</td>
+            <td>LLM-5, FC-2, SS-1</td>
+            <td>LLM-5.6, 5.7, FC-2.3, SS-1.1</td>
+            <td>Б</td>
+        </tr>
+        <tr style="background: #4a5568; color: white; font-weight: bold;">
+            <td colspan="3"><strong>ИТОГО</strong></td>
+            <td><strong>100 + 80</strong></td>
+            <td colspan="3">5 ЗЕ (180 часов)</td>
+        </tr>
+    </table>
+    
+    <div style="margin-top: 10px; font-size: 8pt; color: #718096;">
+        <p><strong>Примечание:</strong> 100 ч — контактная работа, 80 ч — самостоятельная работа. Б — базовый уровень, С — средний уровень</p>
+    </div>
+    
+    <div class="footer">
+        Рабочая программа дисциплины | Структура
     </div>
 </div>
 
@@ -200,17 +360,11 @@
     <ul>
         <li>Краткая история ИИ, типы ML (с учителем, без учителя, с подкреплением)</li>
         <li>Понятие генеративного ИИ, дискриминативные vs генеративные модели</li>
-        <li>Эволюция от классического ML к глубокому и генеративному ИИ</li>
-        <li>Основы работы с данными в Python (NumPy, Pandas)</li>
-        <li>EDA и визуализация данных (matplotlib, seaborn)</li>
+        <li>Основы работы с данными в Python (NumPy, Pandas), EDA и визуализация</li>
     </ul>
     
     <div class="practice">
-        <strong>Практические занятия:</strong>
-        <ul>
-            <li>Google Colab, загрузка датасетов, базовые операции с NumPy и Pandas</li>
-            <li>Автоматизация обработки данных, создание интерактивных дашбордов (Plotly/Dash)</li>
-        </ul>
+        <strong>Практика:</strong> Google Colab, загрузка датасетов, автоматизация обработки данных, дашборды (Plotly/Dash)
     </div>
     
     <div class="footer">
@@ -231,20 +385,13 @@
     
     <h3>Содержание:</h3>
     <ul>
-        <li>Математическая модель искусственного нейрона</li>
-        <li>Функции активации (Sigmoid, ReLU, Tanh)</li>
-        <li>Архитектура MLP, прямой и обратный проход</li>
-        <li>Градиентный спуск и learning rate</li>
+        <li>Математическая модель нейрона, функции активации (Sigmoid, ReLU, Tanh)</li>
+        <li>Архитектура MLP, прямой/обратный проход, градиентный спуск</li>
         <li>Проблема переобучения и регуляризация</li>
     </ul>
     
     <div class="practice">
-        <strong>Практические занятия:</strong>
-        <ul>
-            <li>Реализация MLP для бинарной классификации (Keras Sequential)</li>
-            <li>Сравнение архитектур, влияние регуляризации (Dropout, L2)</li>
-            <li>ROC-кривые, confusion matrix</li>
-        </ul>
+        <strong>Практика:</strong> Реализация MLP (Keras), сравнение архитектур, регуляризация, ROC-кривые, confusion matrix
     </div>
     
     <div class="footer">
@@ -267,18 +414,11 @@
     <ul>
         <li>Архитектура автоэнкодера (encoder + bottleneck + decoder)</li>
         <li>Латентное пространство и ошибка реконструкции</li>
-        <li>Ограничения обычных автоэнкодеров для генерации</li>
-        <li>VAE: параметризация распределения (z_mean, z_log_var)</li>
-        <li>Репараметризационный трюк, KL-дивергенция</li>
+        <li>VAE: параметризация распределения (z_mean, z_log_var), KL-дивергенция</li>
     </ul>
     
     <div class="practice">
-        <strong>Практические занятия:</strong>
-        <ul>
-            <li>Построение автоэнкодера на Fashion-MNIST</li>
-            <li>Генерация новых данных из латентного пространства VAE</li>
-            <li>Интерполяция в latent space</li>
-        </ul>
+        <strong>Практика:</strong> Построение автоэнкодера на Fashion-MNIST, генерация из латентного пространства VAE
     </div>
     
     <div class="footer">
@@ -299,19 +439,13 @@
     
     <h3>Содержание:</h3>
     <ul>
-        <li>Архитектура GAN (Generator + Discriminator)</li>
-        <li>Минимаксная игра, функция потерь GAN</li>
+        <li>Архитектура GAN (Generator + Discriminator), минимаксная игра</li>
         <li>Проблемы обучения: vanishing gradients, mode collapse</li>
         <li>DCGAN и улучшения (label smoothing, spectral normalization)</li>
     </ul>
     
     <div class="practice">
-        <strong>Практические занятия:</strong>
-        <ul>
-            <li>Запуск предобученной DCGAN, генерация изображений</li>
-            <li>Обучение DCGAN с нуля на Fashion-MNIST</li>
-            <li>Расчёт FID/KID метрик качества</li>
-        </ul>
+        <strong>Практика:</strong> Запуск предобученной DCGAN, обучение DCGAN с нуля, расчёт FID/KID
     </div>
     
     <div class="footer">
@@ -322,29 +456,25 @@
 <!-- Слайд 6: Модуль 5 -->
 <div class="slide">
     <h1>МОДУЛЬ 5</h1>
-    <h2>Трансформеры и большие языковые модели (LLM)</h2>
+    <h2>Трансформеры, LLM и современные технологии (PEFT, RAG)</h2>
     
     <div class="module-info">
-        <span>Объём: 12 часов</span>
-        <span>Компетенции: LLM-5, FC-2</span>
+        <span>Объём: 32 часа</span>
+        <span>Компетенции: LLM-5, DL-2, FC-2, PL-1</span>
         <span>Уровень: Базовый/Средний</span>
     </div>
     
     <h3>Содержание:</h3>
     <ul>
-        <li>Ограничения RNN, механизм внимания (Attention)</li>
-        <li>Self-Attention и архитектура Transformer</li>
-        <li>Авторегрессионная генерация (GPT)</li>
+        <li>Трансформеры: Attention механизм, архитектура Transformer, GPT</li>
+        <li>Современные LLM: Llama 2/3, Mistral, Qwen</li>
+        <li>PEFT методы: LoRA, QLoRA, 4-bit quantization</li>
+        <li>RAG-системы: векторные БД (Chroma, FAISS), LangChain</li>
         <li>Prompt Engineering: Zero-Shot, Few-Shot, Chain-of-Thought</li>
     </ul>
     
     <div class="practice">
-        <strong>Практические занятия:</strong>
-        <ul>
-            <li>Hugging Face Transformers: BERT, GPT-2</li>
-            <li>Fine-tuning BERT на классификации (IMDB), NER</li>
-            <li>Работа с API современных LLM, управление параметрами генерации</li>
-        </ul>
+        <strong>Практика:</strong> Hugging Face Transformers, LoRA/QLoRA дообучение, построение RAG-систем с LangChain
     </div>
     
     <div class="footer">
@@ -352,73 +482,7 @@
     </div>
 </div>
 
-<!-- Слайд 7: Модуль 5.1 -->
-<div class="slide">
-    <h1>МОДУЛЬ 5.1</h1>
-    <h2>Современные архитектуры LLM и эффективное дообучение (PEFT)</h2>
-    
-    <div class="module-info">
-        <span>Объём: 10 часов</span>
-        <span>Компетенции: LLM-5, DL-2, FC-2</span>
-        <span>Уровень: Базовый/Средний</span>
-    </div>
-    
-    <h3>Содержание:</h3>
-    <ul>
-        <li>Архитектуры современных LLM: Llama 2/3, Mistral, Qwen</li>
-        <li>PEFT методы: LoRA, QLoRA, Prefix Tuning, Prompt Tuning</li>
-        <li>4-битная квантование (bitsandbytes)</li>
-        <li>Когда применять PEFT vs full fine-tuning</li>
-    </ul>
-    
-    <div class="practice">
-        <strong>Практические занятия:</strong>
-        <ul>
-            <li>LoRA дообучение с библиотекой peft</li>
-            <li>QLoRA с 4-битной квантовацией на ограниченном GPU</li>
-            <li>Сравнение с полным fine-tuning</li>
-        </ul>
-    </div>
-    
-    <div class="footer">
-        Рабочая программа дисциплины | Модуль 5.1
-    </div>
-</div>
-
-<!-- Слайд 8: Модуль 5.2 -->
-<div class="slide">
-    <h1>МОДУЛЬ 5.2</h1>
-    <h2>RAG-системы и работа с знаниями</h2>
-    
-    <div class="module-info">
-        <span>Объём: 10 часов</span>
-        <span>Компетенции: LLM-5, FC-2, PL-1</span>
-        <span>Уровень: Базовый/Средний</span>
-    </div>
-    
-    <h3>Содержание:</h3>
-    <ul>
-        <li>RAG (Retrieval-Augmented Generation): архитектура и преимущества</li>
-        <li>Векторные базы данных: Chroma, FAISS, Pinecone, Weaviate</li>
-        <li>Эмбеддинги и гибридный поиск</li>
-        <li>Оценка качества RAG (RAGAS метрики)</li>
-    </ul>
-    
-    <div class="practice">
-        <strong>Практические занятия:</strong>
-        <ul>
-            <li>Построение RAG-системы с LangChain</li>
-            <li>Продвинутый RAG: гибридный поиск, reranking</li>
-            <li>Оценка качества с RAGAS (faithfulness, answer relevancy)</li>
-        </ul>
-    </div>
-    
-    <div class="footer">
-        Рабочая программа дисциплины | Модуль 5.2
-    </div>
-</div>
-
-<!-- Слайд 9: Модуль 6 -->
+<!-- Слайд 7: Модуль 6 -->
 <div class="slide">
     <h1>МОДУЛЬ 6</h1>
     <h2>Генерация изображений: диффузионные модели</h2>
@@ -434,16 +498,10 @@
         <li>Прямой и обратный процесс диффузии</li>
         <li>U-Net для denoising, Latent Diffusion Models</li>
         <li>Stable Diffusion: text encoder + U-Net + VAE</li>
-        <li>Преимущества диффузионных моделей над GAN</li>
     </ul>
     
     <div class="practice">
-        <strong>Практические занятия:</strong>
-        <ul>
-            <li>Пайплайн Stable Diffusion, генерация по промптам</li>
-            <li>LoRA fine-tuning на кастомных данных (DreamBooth)</li>
-            <li>Анализ качества и артефактов</li>
-        </ul>
+        <strong>Практика:</strong> Пайплайн Stable Diffusion, LoRA fine-tuning (DreamBooth)
     </div>
     
     <div class="footer">
@@ -451,7 +509,7 @@
     </div>
 </div>
 
-<!-- Слайд 10: Модуль 7 -->
+<!-- Слайд 8: Модуль 7 -->
 <div class="slide">
     <h1>МОДУЛЬ 7</h1>
     <h2>AI Agents и автономные системы</h2>
@@ -466,17 +524,11 @@
     <ul>
         <li>AI Agents: концепция, отличие от чат-ботов</li>
         <li>Архитектура ReAct (Reason + Act)</li>
-        <li>Типы инструментов (tools), function calling</li>
-        <li>Мульти-агентные системы, фреймворки (LangGraph, AutoGen, CrewAI)</li>
+        <li>Типы инструментов (tools), мульти-агентные системы</li>
     </ul>
     
     <div class="practice">
-        <strong>Практические занятия:</strong>
-        <ul>
-            <li>Создание AI-агента с LangChain</li>
-            <li>Мульти-агентная система с LangGraph/AutoGen</li>
-            <li>Координация между агентами</li>
-        </ul>
+        <strong>Практика:</strong> Создание AI-агента с LangChain, мульти-агентная система с LangGraph/AutoGen
     </div>
     
     <div class="footer">
@@ -484,7 +536,7 @@
     </div>
 </div>
 
-<!-- Слайд 11: Модуль 8 -->
+<!-- Слайд 9: Модуль 8 -->
 <div class="slide">
     <h1>МОДУЛЬ 8</h1>
     <h2>Развёртывание и оптимизация генеративных моделей</h2>
@@ -499,17 +551,11 @@
     <ul>
         <li>Этапы развёртывания в production</li>
         <li>Model quantization (INT8, INT4, GGUF)</li>
-        <li>Оптимизация инференса: batching, caching, distillation</li>
-        <li>Платформы: vLLM, TGI, Hugging Face Spaces</li>
+        <li>Оптимизация инференса: batching, caching</li>
     </ul>
     
     <div class="practice">
-        <strong>Практические занятия:</strong>
-        <ul>
-            <li>FastAPI приложение + Docker контейнеризация</li>
-            <li>Кэширование (Redis), мониторинг (Prometheus, Grafana)</li>
-            <li>Load testing и оптимизация производительности</li>
-        </ul>
+        <strong>Практика:</strong> FastAPI + Docker, кэширование (Redis), мониторинг (Prometheus)
     </div>
     
     <div class="footer">
@@ -517,10 +563,10 @@
     </div>
 </div>
 
-<!-- Слайд 12: Модуль 9 -->
+<!-- Слайд 10: Модуль 9 -->
 <div class="slide">
     <h1>МОДУЛЬ 9</h1>
-    <h2>Мультимодальный ИИ и этические аспекты генеративного ИИ</h2>
+    <h2>Мультимодальный ИИ и этические аспекты</h2>
     
     <div class="module-info">
         <span>Объём: 8 часов</span>
@@ -531,18 +577,12 @@
     <h3>Содержание:</h3>
     <ul>
         <li>Мультимодальные модели (CLIP, LLaVA, GPT-4V)</li>
-        <li>Visual Question Answering, архитектурные подходы</li>
+        <li>Visual Question Answering</li>
         <li>Этические риски: deepfakes, bias, авторское право</li>
-        <li>Инструменты обнаружения синтетического контента</li>
     </ul>
     
     <div class="practice">
-        <strong>Практические занятия:</strong>
-        <ul>
-            <li>Кейсы применения и злоупотреблений, дискуссия</li>
-            <li>Разработка мультимодального прототипа</li>
-            <li>Этический аудит и отчёт</li>
-        </ul>
+        <strong>Практика:</strong> Кейсы применения, разработка мультимодального прототипа, этический аудит
     </div>
     
     <div class="footer">
@@ -550,7 +590,7 @@
     </div>
 </div>
 
-<!-- Слайд 13: Экзамен -->
+<!-- Слайд 11: Экзамен -->
 <div class="slide">
     <h1>ПРОМЕЖУТОЧНАЯ АТТЕСТАЦИЯ</h1>
     <h2>Экзамен</h2>
@@ -567,7 +607,7 @@
         <tr><td>35-40</td><td>Полный самостоятельный верный ответ, концептуальное понимание, примеры</td></tr>
         <tr><td>29-34</td><td>Достаточно полный ответ, небольшие неточности</td></tr>
         <tr><td>22-28</td><td>Неполный ответ, трудности при обобщении</td></tr>
-        <tr><td>0</td><td>Разрозненные знания, ошибки в определениях</td></tr>
+        <tr><td>0-21</td><td>Разрозненные знания, ошибки в определениях</td></tr>
     </table>
     
     <div class="footer">
@@ -575,7 +615,7 @@
     </div>
 </div>
 
-<!-- Слайд 14: Практические навыки -->
+<!-- Слайд 12: Практические навыки -->
 <div class="slide">
     <h1>ПРИМЕРЫ ПРАКТИЧЕСКИХ НАВЫКОВ</h1>
     
@@ -622,7 +662,7 @@
     </div>
 </div>
 
-<!-- Слайд 15: Технологический стек -->
+<!-- Слайд 13: Технологический стек -->
 <div class="slide">
     <h1>ТЕХНОЛОГИЧЕСКИЙ СТЕК ДИСЦИПЛИНЫ</h1>
     
@@ -656,7 +696,7 @@
     </div>
 </div>
 
-<!-- Слайд 16: Литература -->
+<!-- Слайд 14: Литература -->
 <div class="slide">
     <h1>ЛИТЕРАТУРА И РЕСУРСЫ</h1>
     
@@ -687,7 +727,7 @@
     </div>
 </div>
 
-<!-- Слайд 17: Итоги -->
+<!-- Слайд 15: Итоги -->
 <div class="slide">
     <h1>ИТОГИ ОБУЧЕНИЯ</h1>
     
