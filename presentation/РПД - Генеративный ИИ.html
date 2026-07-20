@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>РПД - Генеративный ИИ</title>
+    <style>
+        @page { size: A4 landscape; margin: 1.5cm; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.4; color: #333; max-width: 1000px; margin: 0 auto; }
+        .slide { page-break-after: always; min-height: 90vh; display: flex; flex-direction: column; border-bottom: 2px solid #4a90a4; padding-bottom: 20px; margin-bottom: 20px; }
+        .slide:last-child { page-break-after: auto; border-bottom: none; }
+        .header-slide { background: linear-gradient(135deg, #2c5282 0%, #4a90a4 100%); color: white; padding: 40px; border-radius: 10px; margin-bottom: 20px; }
+        .header-slide h1 { color: white; border-bottom: none; }
+        .info-box { background: #f7fafc; border-left: 4px solid #4a90a4; padding: 15px; margin: 15px 0; border-radius: 0 8px 8px 0; }
+        .info-row { display: flex; gap: 15px; margin: 10px 0; }
+        .info-row .info-box { flex: 1; margin: 0; }
+        .module-info { display: flex; justify-content: space-between; background: #edf2f7; padding: 10px 15px; border-radius: 8px; margin: 15px 0; font-weight: bold; }
+        ul { margin: 10px 0; padding-left: 25px; }
+        li { margin: 6px 0; }
+        .practice { background: #e6fffa; border-left: 4px solid #38b2ac; padding: 12px; margin: 10px 0; border-radius: 0 8px 8px 0; }
+        .skills { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 15px 0; }
+        .skill-card { background: #f0fff4; border: 1px solid #c6f6d5; padding: 15px; border-radius: 8px; }
+        .skill-card h4 { color: #276749; margin-top: 0; }
+        .tag { display: inline-block; background: #4299e1; color: white; padding: 3px 10px; border-radius: 15px; font-size: 9pt; margin: 2px; }
+        .role-tag { display: inline-block; padding: 3px 10px; border-radius: 15px; font-size: 9pt; margin: 2px; color: white; }
+        table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 9pt; }
+        th, td { border: 1px solid #cbd5e0; padding: 4px 6px; text-align: left; }
+        th { background: #4a5568; color: white; font-size: 9pt; }
+        tr:nth-child(even) { background: #f7fafc; }
+        h1 { color: #2c5282; font-size: 24pt; margin-bottom: 10px; border-bottom: 3px solid #4a90a4; padding-bottom: 10px; }
+        h2 { color: #2b6cb0; font-size: 18pt; margin-top: 15px; margin-bottom: 10px; }
+        h3 { color: #2d3748; font-size: 14pt; margin-top: 12px; margin-bottom: 8px; }
+    </style>
+</head>
+<body>
+
+<!-- Слайд 0: Титульный -->
+<div class="slide">
+    <div class="header-slide">
+        <h1>ГЕНЕРАТИВНЫЙ ИСКУССТВЕННЫЙ ИНТЕЛЛЕКТ</h1>
+        <p style="font-size: 14pt; margin-top: 20px;">Структура и содержание дисциплины в логике компетентностно-ролевой модели</p>
+    </div>
+    <div class="info-box">
+        <p><strong>Курс:</strong> 3-й курс, 5-й семестр | <strong>Трудоёмкость:</strong> 5 ЗЕ (180 часов) | <strong>Аттестация:</strong> экзамен</p>
+    </div>
+    <div class="info-row">
+        <div class="info-box">
+            <p style="margin-top: 0;"><strong>Компетенции КРМ:</strong></p>
+            <div style="margin-top: 8px;">
+                <span class="tag">ML-2</span><span class="tag">ML-3</span><span class="tag">PL-1</span>
+                <span class="tag">DL-2</span><span class="tag">LLM-5</span><span class="tag">FC-2</span><span class="tag">SS-1</span>
+            </div>
+        </div>
+        <div class="info-box">
+            <p style="margin-top: 0;"><strong>Роли (КРМ 3.0):</strong></p>
+            <div style="margin-top: 8px;">
+                <span class="role-tag" style="background: #ed8936;">ML Engineer</span>
+                <span class="role-tag" style="background: #9f7aea;">AI Engineer</span>
+                <span class="role-tag" style="background: #48bb78;">AI Architect</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Слайд 1: Пререквизиты -->
+<div class="slide">
+    <h1>ПРЕРЕКВИЗИТЫ</h1>
+    <h2>Дисциплины, необходимые для освоения курса</h2>
+    <div class="info-box">
+        <h3 style="margin-top: 0; font-size: 11pt;">Обязательные дисциплины</h3>
+        <table>
+            <tr><th>Дисциплина</th><th>Необходимые знания и навыки</th><th>Уровень</th></tr>
+            <tr><td><strong>Алгоритмизация и программирование</strong></td><td>Python, NumPy, Pandas, базовые алгоритмы</td><td>Базовый</td></tr>
+            <tr><td><strong>Дискретная математика</strong></td><td>Теория графов, комбинаторика, теория вероятностей</td><td>Базовый</td></tr>
+            <tr><td><strong>Высшая математика</strong></td><td>Матан, линейная алгебра, оптимизация, статистика</td><td>Базовый</td></tr>
+            <tr><td><strong>Основы машинного обучения</strong></td><td>Обучение с учителем/без учителя, метрики, градиентный спуск</td><td>Базовый</td></tr>
+        </table>
+    </div>
+</div>
+
+<!-- Слайд 2: Структура модулей -->
+<div class="slide">
+    <h1 style="font-size: 18pt;">СТРУКТУРА ДИСЦИПЛИНЫ</h1>
+    <table>
+        <tr><th>Модуль</th><th>Содержание</th><th>Часы</th><th>Компетенции</th></tr>
+        <tr><td><strong>M1</strong></td><td>Введение в генеративный ИИ + основы работы с данными в Python</td><td>10 ч</td><td>ML-2, PL-1</td></tr>
+        <tr><td><strong>M2</strong></td><td>Автоэнкодеры и вариационные автоэнкодеры (VAE)</td><td>18 ч</td><td>ML-3, FC-2</td></tr>
+        <tr><td><strong>M3</strong></td><td>Генеративно-состязательные сети (GAN)</td><td>6 ч</td><td>ML-3</td></tr>
+        <tr><td><strong>M4</strong></td><td>Трансформеры и большие языковые модели (LLM)</td><td>28 ч</td><td>LLM-5, FC-2</td></tr>
+        <tr><td><strong>M5</strong></td><td>RAG-системы и мультимодальный ИИ</td><td>18 ч</td><td>LLM-5, FC-2, PL-1, SS-1</td></tr>
+        <tr><td><strong>M6</strong></td><td>AI Agents, развёртывание и диффузионные модели</td><td>26 ч</td><td>ML-3, LLM-5, PL-1</td></tr>
+        <tr style="background: #4a5568; color: white;"><td colspan="2"><strong>ИТОГО (контактная работа)</strong></td><td><strong>106 ч</strong></td><td>5 ЗЕ (180 ч)</td></tr>
+    </table>
+    <div class="info-box" style="margin-top: 15px;">
+        <p><strong>Форма промежуточной аттестации:</strong> экзамен</p>
+        <p><strong>Уровни освоения:</strong> Базовый (Б), Базовый/Средний (Б/С)</p>
+    </div>
+</div>
+
+<!-- Слайд 3: Модуль 1 -->
+<div class="slide">
+    <h1>МОДУЛЬ 1</h1>
+    <h2>Введение в генеративный ИИ + основы работы с данными в Python</h2>
+    <div class="module-info"><span>10 часов</span><span>ML-2, PL-1</span><span>Базовый</span></div>
+    <h3>Содержание:</h3>
+    <ul>
+        <li>Краткая история ИИ, типы машинного обучения (с учителем, без учителя, с подкреплением)</li>
+        <li>Понятие генеративного ИИ, дискриминативные vs генеративные модели</li>
+        <li>Обзор современных применений: ChatGPT, Midjourney, GitHub Copilot</li>
+        <li>Основы работы с данными в Python (NumPy, Pandas)</li>
+        <li>Предварительный анализ данных и визуализация (EDA, matplotlib, seaborn)</li>
+    </ul>
+    <div class="practice"><strong>Практика:</strong> Google Colab, загрузка датасетов, базовые операции, автоматизация обработки данных, интерактивные дашборды (Plotly/Dash)</div>
+</div>
+
+<!-- Слайд 4: Модуль 2 -->
+<div class="slide">
+    <h1>МОДУЛЬ 2</h1>
+    <h2>Автоэнкодеры и вариационные автоэнкодеры (VAE)</h2>
+    <div class="module-info"><span>18 часов</span><span>ML-3, FC-2</span><span>Б/С</span></div>
+    <h3>Содержание:</h3>
+    <ul>
+        <li>Архитектура автоэнкодера (encoder + bottleneck + decoder)</li>
+        <li>Латентное пространство и ошибка реконструкции</li>
+        <li>Вариационные автоэнкодеры (VAE): параметризация распределения, репараметризационный трюк</li>
+        <li>Функция потерь VAE (reconstruction + KL-дивергенция)</li>
+        <li>Генерация новых данных из латентного пространства</li>
+    </ul>
+    <div class="practice"><strong>Практика:</strong> Построение автоэнкодера на Fashion-MNIST, генерация из латентного пространства VAE</div>
+</div>
+
+<!-- Слайд 5: Модуль 3 -->
+<div class="slide">
+    <h1>МОДУЛЬ 3</h1>
+    <h2>Генеративно-состязательные сети (GAN)</h2>
+    <div class="module-info"><span>6 часов</span><span>ML-3</span><span>Б/С</span></div>
+    <h3>Содержание:</h3>
+    <ul>
+        <li>Архитектура GAN (генератор + дискриминатор)</li>
+        <li>Минимаксная игра, функция потерь GAN</li>
+        <li>Проблемы обучения: затухающие градиенты (vanishing gradients), коллапс мод (mode collapse)</li>
+        <li>DCGAN и улучшения (label smoothing, спектральная нормализация)</li>
+    </ul>
+    <div class="practice"><strong>Практика:</strong> Запуск предобученной DCGAN, генерация изображений, обучение DCGAN с нуля, расчёт FID/KID метрик</div>
+</div>
+
+<!-- Слайд 6: Модуль 4 -->
+<div class="slide">
+    <h1>МОДУЛЬ 4</h1>
+    <h2>Трансформеры и большие языковые модели (LLM)</h2>
+    <div class="module-info"><span>28 часов</span><span>LLM-5, FC-2</span><span>Б/С</span></div>
+    <h3>Содержание:</h3>
+    <ul>
+        <li>Ограничения RNN, механизм внимания (Attention)</li>
+        <li>Self-Attention и архитектура Трансформер (Transformer)</li>
+        <li>Авторегрессионная генерация (GPT)</li>
+        <li>Инженерия промптов (Prompt Engineering): Zero-Shot, Few-Shot, Chain-of-Thought</li>
+        <li>Архитектуры современных больших языковых моделей (LLM): Llama, Mistral, Qwen</li>
+        <li>PEFT методы: LoRA, QLoRA, Prefix Tuning</li>
+        <li>4-битная квантование (bitsandbytes)</li>
+    </ul>
+    <div class="practice"><strong>Практика:</strong> Hugging Face Transformers (BERT, GPT-2), Fine-tuning BERT, LoRA/QLoRA дообучение с peft, работа с API LLM</div>
+</div>
+
+<!-- Слайд 7: Модуль 5 -->
+<div class="slide">
+    <h1>МОДУЛЬ 5</h1>
+    <h2>RAG-системы и мультимодальный ИИ</h2>
+    <div class="module-info"><span>18 часов</span><span>LLM-5, FC-2, PL-1, SS-1</span><span>Б/С</span></div>
+    <h3>Содержание:</h3>
+    <ul>
+        <li>RAG (Retrieval-Augmented Generation): архитектура и преимущества</li>
+        <li>Векторные базы данных: Chroma, FAISS, Pinecone, Weaviate</li>
+        <li>Эмбеддинги и гибридный поиск</li>
+        <li>Оценка качества RAG (RAGAS метрики)</li>
+        <li>Мультимодальные модели (CLIP, LLaVA, GPT-4V)</li>
+        <li>Visual Question Answering</li>
+        <li>Этические риски: deepfakes, bias, авторское право</li>
+    </ul>
+    <div class="practice"><strong>Практика:</strong> Построение RAG-системы с LangChain, гибридный поиск, reranking, мультимодальные прототипы, этический аудит</div>
+</div>
+
+<!-- Слайд 8: Модуль 6 -->
+<div class="slide">
+    <h1>МОДУЛЬ 6</h1>
+    <h2>AI Agents, развёртывание и диффузионные модели</h2>
+    <div class="module-info"><span>26 часов</span><span>ML-3, LLM-5, PL-1</span><span>Б/С</span></div>
+    <h3>Содержание:</h3>
+    <ul>
+        <li>AI-агенты: концепция, отличие от чат-ботов</li>
+        <li>Архитектура ReAct (Reason + Act)</li>
+        <li>Типы инструментов (tools), function calling</li>
+        <li>Мульти-агентные системы (LangGraph, AutoGen, CrewAI)</li>
+        <li>Диффузионные модели (Stable Diffusion)</li>
+        <li>Квантование моделей (INT8, INT4, GGUF)</li>
+        <li>Оптимизация инференса: пакетная обработка (batching), кэширование (caching)</li>
+        <li>Платформы: vLLM, TGI, Hugging Face Spaces</li>
+    </ul>
+    <div class="practice"><strong>Практика:</strong> AI-агент с LangChain, мульти-агентная система, пайплайн Stable Diffusion, DreamBooth fine-tuning, FastAPI + Docker, кэширование (Redis)</div>
+</div>
+
+<!-- Слайд 9: Аттестация -->
+<div class="slide">
+    <h1>ПРОМЕЖУТОЧНАЯ АТТЕСТАЦИЯ</h1>
+    <h2>Экзамен</h2>
+    <div class="info-box">
+        <p><strong>Форма:</strong> устный экзамен (2 теоретических вопроса)</p>
+        <p><strong>Охват:</strong> все модули дисциплины</p>
+        <p><strong>Проверяемые компетенции:</strong> ML-2, ML-3, PL-1, LLM-5, FC-2, SS-1</p>
+    </div>
+    <h3>Критерии оценки:</h3>
+    <table>
+        <tr><th>Баллы</th><th>Критерий</th></tr>
+        <tr><td>35-40</td><td>Полный самостоятельный верный ответ, концептуальное понимание, примеры</td></tr>
+        <tr><td>29-34</td><td>Достаточно полный ответ, небольшие неточности</td></tr>
+        <tr><td>22-28</td><td>Неполный ответ, трудности при обобщении</td></tr>
+        <tr><td>0-21</td><td>Разрозненные знания, ошибки в определениях</td></tr>
+    </table>
+</div>
+
+<!-- Слайд 10: Практические навыки -->
+<div class="slide">
+    <h1>ПРАКТИЧЕСКИЕ НАВЫКИ</h1>
+    <div class="skills">
+        <div class="skill-card">
+            <h4>Инженер по машинному обучению (ML Engineer)</h4>
+            <ul>
+                <li>Реализация MLP, автоэнкодеров, GAN с нуля</li>
+                <li>Сравнение архитектур и оптимизаторов</li>
+                <li>Расчёт метрик качества (FID, MSE, F1-score)</li>
+            </ul>
+        </div>
+        <div class="skill-card">
+            <h4>Инженер по ИИ (AI Engineer)</h4>
+            <ul>
+                <li>LoRA/QLoRA дообучение LLM</li>
+                <li>Построение RAG-систем с LangChain</li>
+                <li>Развёртывание моделей (FastAPI, Docker)</li>
+            </ul>
+        </div>
+        <div class="skill-card">
+            <h4>Инженер по промптам (Prompt Engineer)</h4>
+            <ul>
+                <li>Zero-Shot, Few-Shot, Chain-of-Thought промпты</li>
+                <li>Управление параметрами генерации (temperature, top_p)</li>
+                <li>Итеративная отладка и оптимизация промптов</li>
+            </ul>
+        </div>
+        <div class="skill-card">
+            <h4>Архитектор ИИ (AI Architect)</h4>
+            <ul>
+                <li>Проектирование RAG-систем</li>
+                <li>Архитектура AI-агентов</li>
+                <li>Выбор моделей и оптимизация</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Слайд 11: Технологический стек -->
+<div class="slide">
+    <h1>ТЕХНОЛОГИЧЕСКИЙ СТЕК</h1>
+    <div class="info-row">
+        <div class="info-box">
+            <h3 style="margin-top:0;">Языки и библиотеки</h3>
+            <ul style="font-size:9pt;margin:5px 0;padding-left:20px;">
+                <li><strong>Python</strong> — основной язык</li>
+                <li><strong>NumPy, Pandas</strong> — работа с данными</li>
+                <li><strong>PyTorch, Keras</strong> — фреймворки глубокого обучения</li>
+                <li><strong>Hugging Face Transformers</strong> — LLM и токенизаторы</li>
+                <li><strong>LangChain</strong> — RAG и AI Agents</li>
+                <li><strong>diffusers</strong> — диффузионные модели</li>
+                <li><strong>FastAPI, Docker</strong> — развёртывание</li>
+            </ul>
+        </div>
+        <div class="info-box">
+            <h3 style="margin-top:0;">Платформы и сервисы</h3>
+            <ul style="font-size:9pt;margin:5px 0;padding-left:20px;">
+                <li><strong>Google Colab</strong> — обучение и эксперименты</li>
+                <li><strong>Hugging Face Hub</strong> — модели и датасеты</li>
+                <li><strong>vLLM, TGI</strong> — инференс LLM</li>
+                <li><strong>Chroma, FAISS</strong> — векторные БД</li>
+                <li><strong>Weights & Biases</strong> — эксперименты</li>
+                <li><strong>MLflow</strong> — управление моделями</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Слайд 12: Литература -->
+<div class="slide">
+    <h1>ЛИТЕРАТУРА И РЕСУРСЫ</h1>
+    <div class="info-box">
+        <h3 style="margin-top:0;">Основная литература:</h3>
+        <ol style="font-size:9pt;margin:5px 0;padding-left:20px;">
+            <li>Vaswani A. et al. "Attention Is All You Need" (2017)</li>
+            <li>Touvron H. et al. "Llama 2: Open Foundation and Fine-Tuned Chat Models" (2023)</li>
+            <li>Hu E.J. et al. "LoRA: Low-Rank Adaptation of Large Language Models" (2022)</li>
+            <li>Lewis P. et al. "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks" (2020)</li>
+            <li>Rombach R. et al. "High-Resolution Image Synthesis with Latent Diffusion Models" (2022)</li>
+            <li>Машинное обучение: учебник / Е. Ю. Бутырский и др. – Директ-Медиа, 2023</li>
+        </ol>
+    </div>
+    <div class="info-box">
+        <h3 style="margin-top:0;">Онлайн-курсы:</h3>
+        <ul style="font-size:9pt;margin:5px 0;padding-left:20px;">
+            <li><strong>Hugging Face Course</strong> — https://huggingface.co/learn</li>
+            <li><strong>DeepLearning.AI Short Courses</strong> — https://www.deeplearning.ai/short-courses/</li>
+            <li><strong>LangChain Documentation</strong> — https://docs.langchain.com/</li>
+        </ul>
+    </div>
+    <div class="info-box">
+        <h3 style="margin-top:0;">Журналы:</h3>
+        <ul style="font-size:9pt;margin:5px 0;padding-left:20px;">
+            <li>Journal of Machine Learning Research (JMLR)</li>
+            <li>arXiv.org (cs.LG, cs.CL, cs.CV)</li>
+            <li>Сайт кафедры ИМС — https://ims.sfedu.ru/</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Слайд 13: Итоги обучения -->
+<div class="slide">
+    <h1>ИТОГИ ОБУЧЕНИЯ</h1>
+    <h2>После завершения дисциплины студент сможет:</h2>
+    <div class="info-box">
+        <ul style="margin:5px 0;padding-left:20px;font-size:10pt;">
+            <li>✅ Работать с современными LLM (Llama, Mistral, Qwen)</li>
+            <li>✅ Применять PEFT методы (LoRA, QLoRA) для дообучения моделей</li>
+            <li>✅ Строить RAG-системы с векторными базами данных</li>
+            <li>✅ Разрабатывать AI Agents с использованием инструментов</li>
+            <li>✅ Развёртывать генеративные модели в production</li>
+            <li>✅ Оценивать качество генеративных моделей</li>
+            <li>✅ Анализировать этические риски и bias в ИИ-системах</li>
+        </ul>
+    </div>
+    <div class="header-slide" style="margin-top:30px;">
+        <p style="font-size:12pt;">РАБОЧАЯ ПРОГРАММА ДИСЦИПЛИНЫ</p>
+        <p style="font-size:14pt;font-weight:bold;">Генеративный искусственный интеллект</p>
+        <p style="font-size:12pt;margin-top:15px;">2026</p>
+    </div>
+</div>
+
+</body>
+</html>
