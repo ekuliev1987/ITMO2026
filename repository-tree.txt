@@ -1,0 +1,86 @@
+.
+├── .gitignore
+├── CONTRIBUTING.md
+├── LICENSE.md
+├── README.md
+├── data/
+│   ├── krm-v3.0.xlsx
+│   └── README.md
+├── docs/
+│   └── rpd.md
+├── Exam/
+│   ├── attachments/
+│   │   └── .gitkeep
+│   └── README.md
+├── M1-vvedenie-ml-ai/
+│   ├── attachments/
+│   │   └── .gitkeep
+│   └── README.md
+├── M2-vae/
+│   ├── attachments/
+│   │   └── .gitkeep
+│   └── README.md
+├── M3-gan/
+│   ├── attachments/
+│   │   └── .gitkeep
+│   └── README.md
+├── M4-transformers-llm/
+│   ├── attachments/
+│   │   └── .gitkeep
+│   └── README.md
+├── M5-rag-agents/
+│   ├── attachments/
+│   │   └── .gitkeep
+│   └── README.md  # RAG-системы и мультимодальный ИИ
+├── M6-deployment/
+│   ├── attachments/
+│   │   └── .gitkeep
+│   └── README.md  # AI Agents, развёртывание и диффузионные модели
+├── methodical-guidelines/
+│   ├── students/
+│   │   └── README.md
+│   ├── teachers-assessment/
+│   │   └── README.md
+│   ├── teachers-resources/
+│   │   └── README.md
+│   └── README.md
+├── other/
+│   ├── РПД - Генеративный ИИ и МО.*
+│   ├── Генеративные ИИ и МО (уровневые ФОС).docx
+│   ├── РПД_Главный_раздел_таблица_КРМ.*
+│   └── README.md
+├── presentation/
+│   └── РПД - Генеративный ИИ и МО.*
+├── Project/
+│   ├── attachments/
+│   │   └── .gitkeep
+│   └── README.md
+├── resources/
+│   ├── benchmarks/
+│   │   └── README.md
+│   ├── datasets/
+│   │   └── README.md
+│   ├── llm-prompts/
+│   │   └── README.md
+│   ├── other/
+│   │   └── README.md
+│   ├── papers/
+│   │   └── README.md
+│   ├── problem-banks/
+│   │   └── README.md
+│   ├── software/
+│   │   └── python-libs/
+│   │       └── README.md
+│   ├── test-banks/
+│   │   └── README.md
+│   ├── textbooks/
+│   │   └── README.md
+│   └── README.md
+├── source/
+│   └── *.md
+├── team/
+│   ├── images/
+│   │   └── .gitkeep
+│   └── README.md
+└── update/
+    └── *.md

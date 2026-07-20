@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>РПД - Генеративный ИИ и МО</title>
+    <style>
+        @page {
+            size: A4 landscape;
+            margin: 1.5cm;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.4;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .slide {
+            page-break-after: always;
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            border-bottom: 2px solid #4a90a4;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+        .slide:last-child {
+            page-break-after: auto;
+            border-bottom: none;
+        }
+        .slide.compact {
+            min-height: auto;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+        }
+        .slide.compact h1 {
+            font-size: 14pt;
+            margin-bottom: 2px;
+            border-bottom: 2px solid #4a90a4;
+            padding-bottom: 2px;
+        }
+        .slide.compact h2 {
+            font-size: 10pt;
+            margin-top: 3px;
+            margin-bottom: 2px;
+        }
+        .slide.compact .module-info {
+            padding: 2px 6px;
+            margin: 3px 0;
+            font-size: 8pt;
+        }
+        .slide.compact ul {
+            margin: 2px 0;
+            padding-left: 18px;
+        }
+        .slide.compact li {
+            margin: 1px 0;
+            font-size: 8.5pt;
+            line-height: 1.15;
+        }
+        .slide.compact .practice {
+            padding: 4px;
+            margin: 3px 0;
+        }
+        .slide.compact .footer {
+            font-size: 7pt;
+            padding-top: 5px;
+        }
+        h1 {
+            color: #2c5282;
+            font-size: 24pt;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #4a90a4;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2b6cb0;
+            font-size: 18pt;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+        h3 {
+            color: #2d3748;
+            font-size: 14pt;
+            margin-top: 12px;
+            margin-bottom: 8px;
+        }
+        .header-slide {
+            background: linear-gradient(135deg, #2c5282 0%, #4a90a4 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .header-slide h1 {
+            color: white;
+            border-bottom: none;
+        }
+        .info-box {
+            background: #f7fafc;
+            border-left: 4px solid #4a90a4;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .info-row {
+            display: flex;
+            gap: 15px;
+            margin: 10px 0;
+        }
+        .info-row .info-box {
+            flex: 1;
+            margin: 0;
+        }
+        .module-info {
+            display: flex;
+            justify-content: space-between;
+            background: #edf2f7;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+        ul {
+            margin: 10px 0;
+            padding-left: 25px;
+        }
+        li {
+            margin: 6px 0;
+        }
+        .practice {
+            background: #e6fffa;
+            border-left: 4px solid #38b2ac;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .skills {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 15px 0;
+        }
+        .skill-card {
+            background: #f0fff4;
+            border: 1px solid #c6f6d5;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .skill-card h4 {
+            color: #276749;
+            margin-top: 0;
+        }
+        .footer {
+            text-align: center;
+            font-size: 10pt;
+            color: #718096;
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+            display: none;
+        }
+        .tag {
+            display: inline-block;
+            background: #4299e1;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 9pt;
+            margin: 2px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+            font-size: 9pt;
+        }
+        th, td {
+            border: 1px solid #cbd5e0;
+            padding: 4px 6px;
+            text-align: left;
+        }
+        th {
+            background: #4a5568;
+            color: white;
+            font-size: 9pt;
+        }
+        tr:nth-child(even) {
+            background: #f7fafc;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Слайд 0: Титульный -->
+<div class="slide">
+    <div class="header-slide">
+        <h1>ГЕНЕРАТИВНЫЙ ИСКУССТВЕННЫЙ ИНТЕЛЛЕКТ И МАШИННОЕ ОБУЧЕНИЕ</h1>
+        <p style="font-size: 14pt; margin-top: 20px;">Структура и содержание дисциплины в логике компетентностно-ролевой модели</p>
+    </div>
+    
+    <div class="info-box">
+        <p><strong>Курс:</strong> 3-й курс, 5-й семестр | <strong>Трудоёмкость:</strong> 5 ЗЕ (180 часов) | <strong>Аттестация:</strong> экзамен</p>
+    </div>
+    
+    <div class="info-row">
+        <div class="info-box">
+            <p style="margin-top: 0;"><strong>Целевые компетенции КРМ:</strong></p>
+            <div style="margin-top: 8px;">
+                <span class="tag">ML-2</span>
+                <span class="tag">ML-3</span>
+                <span class="tag">PL-1</span>
+                <span class="tag">DL-2</span>
+                <span class="tag">LLM-5</span>
+                <span class="tag">FC-2</span>
+                <span class="tag">SS-1</span>
+            </div>
+        </div>
+        <div class="info-box">
+            <p style="margin-top: 0;"><strong>Основные роли:</strong></p>
+            <div style="margin-top: 8px;">
+                <span class="tag" style="background: #ed8936;">ML Engineer</span>
+                <span class="tag" style="background: #48bb78;">AI Engineer</span>
+                <span class="tag" style="background: #9f7aea;">AI Architect</span>
+                <span class="tag" style="background: #f56565;">ML Researcher</span>
+                <span class="tag" style="background: #ed64a6;">Prompt Engineer</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        Рабочая программа дисциплины | 2026
+    </div>
+</div>
+
+<!-- Слайд 1: Общая таблица модулей -->
+<div class="slide">
+    <h1 style="font-size: 18pt; margin-bottom: 5px;">СТРУКТУРА ДИСЦИПЛИНЫ</h1>
+    <h2 style="font-size: 12pt; margin-top: 0; margin-bottom: 10px;">Обзор модулей и планируемых результатов</h2>
+    
+    <table>
+        <tr>
+            <th style="width: 12%;">Модуль</th>
+            <th style="width: 20%;">Содержание</th>
+            <th style="width: 10%;">Форма</th>
+            <th style="width: 8%;">Объём<br>(а.ч.)</th>
+            <th style="width: 12%;">Компетенции</th>
+            <th style="width: 13%;">Индикаторы</th>
+            <th style="width: 5%;">Уровень</th>
+        </tr>
+        <tr>
+            <td><strong>1</strong>. Введение в ML и генеративный ИИ + Python</td>
+            <td>ML, типы обучения, генеративный ИИ, NumPy, Pandas, EDA</td>
+            <td>Л + П</td>
+            <td>10</td>
+            <td>ML-2, PL-1</td>
+            <td>ML-2.1, ML-2.2, PL-1.2</td>
+            <td>Б</td>
+        </tr>
+        <tr>
+            <td><strong>2</strong>. Нейронные сети</td>
+            <td>Модель нейрона, MLP, функции активации, backpropagation</td>
+            <td>Л + П</td>
+            <td>8</td>
+            <td>ML-3, DL-1</td>
+            <td>ML-3.1, DL-1.1</td>
+            <td>Б/С</td>
+        </tr>
+        <tr>
+            <td><strong>3</strong>. Автоэнкодеры и VAE</td>
+            <td>Автоэнкодеры, латентное пространство, VAE, KL-дивергенция</td>
+            <td>Л + П</td>
+            <td>10</td>
+            <td>DL-2, FC-2</td>
+            <td>DL-2.1, FC-2.1</td>
+            <td>Б/С</td>
+        </tr>
+        <tr>
+            <td><strong>4</strong>. GAN</td>
+            <td>GAN, Generator/Discriminator, DCGAN, mode collapse</td>
+            <td>Л + П</td>
+            <td>6</td>
+            <td>DL-2</td>
+            <td>DL-2.1</td>
+            <td>Б/С</td>
+        </tr>
+        <tr>
+            <td><strong>5</strong>. Трансформеры и LLM</td>
+            <td>Attention, Transformer, LLM (Llama, Mistral), PEFT, RAG-системы</td>
+            <td>Л + П</td>
+            <td>28</td>
+            <td>LLM-5, DL-2, FC-2, PL-1</td>
+            <td>LLM-5.1, 5.4, 5.5, DL-2.1, FC-2.1, 2.3, PL-1.2</td>
+            <td>Б/С</td>
+        </tr>
+        <tr>
+            <td><strong>6</strong>. Диффузионные модели</td>
+            <td>Диффузия, Stable Diffusion, генерация изображений, DreamBooth</td>
+            <td>Л + П</td>
+            <td>10</td>
+            <td>DL-2, LLM-5, FC-2</td>
+            <td>DL-2.1, LLM-5.6, 5.7, FC-2.3</td>
+            <td>Б/С</td>
+        </tr>
+        <tr>
+            <td><strong>7</strong>. AI Agents</td>
+            <td>AI Agents, ReAct, мульти-агентные системы, LangGraph, AutoGen</td>
+            <td>Л + П</td>
+            <td>8</td>
+            <td>LLM-5, FC-2, PL-1</td>
+            <td>LLM-5.1, 5.5, FC-2.1, 2.3, PL-1.2</td>
+            <td>Б/С</td>
+        </tr>
+        <tr>
+            <td><strong>8</strong>. Развёртывание и оптимизация</td>
+            <td>FastAPI, Docker, quantization, caching, мониторинг</td>
+            <td>Л + П</td>
+            <td>8</td>
+            <td>LLM-5, DL-2, PL-1</td>
+            <td>LLM-5.1, 5.5, DL-2.1, PL-1.2</td>
+            <td>Б/С</td>
+        </tr>
+        <tr>
+            <td><strong>9</strong>. Мультимодальный ИИ и этика</td>
+            <td>CLIP, GPT-4V, VQA, deepfakes, bias, этический аудит</td>
+            <td>Л + П</td>
+            <td>8</td>
+            <td>LLM-5, FC-2, SS-1</td>
+            <td>LLM-5.6, 5.7, FC-2.3, SS-1.1</td>
+            <td>Б</td>
+        </tr>
+        <tr style="background: #4a5568; color: white; font-weight: bold;">
+            <td colspan="3"><strong>ИТОГО</strong></td>
+            <td><strong>96 + 84</strong></td>
+            <td colspan="3">5 ЗЕ (180 часов)</td>
+        </tr>
+    </table>
+    
+    <div style="margin-top: 10px; font-size: 8pt; color: #718096;">
+        <p><strong>Примечание:</strong> 96 ч — контактная работа, 84 ч — самостоятельная работа. 1 ЗЕ = 36 часов. Значение ЗЕ округлено до целого. Б — базовый уровень, С — средний уровень</p>
+    </div>
+    
+    <div class="footer">
+        Рабочая программа дисциплины | Структура
+    </div>
+</div>
+
+<!-- Слайд 2: Модуль 1 -->
+<div class="slide">
+    <h1>МОДУЛЬ 1</h1>
+    <h2>Введение в ML и генеративный ИИ + основы работы с данными в Python</h2>
+    
+    <div class="module-info">
+        <span>Объём: 10 часов</span>
+        <span>Компетенции: ML-2, PL-1</span>
+        <span>Уровень: Базовый</span>
+    </div>
+    
+    <h3>Содержание:</h3>
+    <ul>
+        <li>Занятие 1.1 (Б): Краткая история ИИ, типы ML, генеративный ИИ</li>
+        <li>Занятие 1.2 (Б): Основы работы с данными в Python (NumPy, Pandas), EDA</li>
+        <li>Занятие 1.3 (С): Автоматизация обработки данных, дашборды (Plotly/Dash)</li>
+    </ul>
+    
+    <div class="practice">
+        <strong>Практика:</strong> Google Colab, загрузка датасетов, автоматизация обработки данных
+    </div>
+    
+    <div class="footer">
+        Рабочая программа дисциплины | Модуль 1
+    </div>
+</div>
+
+<!-- Слайд 3: Модуль 2 -->
+<div class="slide">
+    <h1>МОДУЛЬ 2</h1>
+    <h2>Нейронные сети как основа современного ИИ</h2>
+    
+    <div class="module-info">
+        <span>Объём: 8 часов</span>
+        <span>Компетенции: ML-3, DL-1</span>
+        <span>Уровень: Базовый/Средний</span>
+    </div>
+    
+    <h3>Содержание:</h3>
+    <ul>
+        <li>Занятие 2.1 (Б): Математическая модель нейрона, функции активации, MLP</li>
+        <li>Занятие 2.2 (Б): Реализация MLP (Keras), графики обучения</li>
+        <li>Занятие 2.3 (С): Сравнение архитектур, регуляризация, ROC-кривые</li>
+    </ul>
+    
+    <div class="practice">
+        <strong>Практика:</strong> Реализация MLP, сравнение архитектур, регуляризация
+    </div>
+    
+    <div class="footer">
+        Рабочая программа дисциплины | Модуль 2
+    </div>
+</div>
+
+<!-- Слайд 4: Модуль 3 -->
+<div class="slide">
+    <h1>МОДУЛЬ 3</h1>
+    <h2>Автоэнкодеры и вариационные автоэнкодеры (VAE)</h2>
+    
+    <div class="module-info">
+        <span>Объём: 10 часов</span>
+        <span>Компетенции: DL-2, FC-2</span>
+        <span>Уровень: Базовый/Средний</span>
+    </div>
+    
+    <h3>Содержание:</h3>
+    <ul>
+        <li>Занятие 3.1 (Б): Архитектура автоэнкодера, латентное пространство</li>
+        <li>Занятие 3.2 (Б): Построение автоэнкодера на Fashion-MNIST</li>
+        <li>Занятие 3.3 (С): VAE, параметризация распределения, генерация данных</li>
+    </ul>
+    
+    <div class="practice">
+        <strong>Практика:</strong> Построение автоэнкодера, генерация из латентного пространства VAE
+    </div>
+    
+    <div class="footer">
+        Рабочая программа дисциплины | Модуль 3
+    </div>
+</div>
+
+<!-- Слайд 5: Модуль 4 -->
+<div class="slide">
+    <h1>МОДУЛЬ 4</h1>
+    <h2>Генеративно-состязательные сети (GAN)</h2>
+    
+    <div class="module-info">
+        <span>Объём: 6 часов</span>
+        <span>Компетенции: DL-2</span>
+        <span>Уровень: Базовый/Средний</span>
+    </div>
+    
+    <h3>Содержание:</h3>
+    <ul>
+        <li>Занятие 4.1 (Б): Архитектура GAN, минимаксная игра, DCGAN</li>
+        <li>Занятие 4.2 (Б): Запуск предобученной DCGAN, генерация изображений</li>
+        <li>Занятие 4.3 (С): Обучение DCGAN с нуля, расчёт FID/KID</li>
+    </ul>
+    
+    <div class="practice">
+        <strong>Практика:</strong> Обучение DCGAN с нуля, расчёт FID/KID
+    </div>
+    
+    <div class="footer">
+        Рабочая программа дисциплины | Модуль 4
+    </div>
+</div>
+
+<!-- Слайд 6: Модуль 5 -->
+<div class="slide">
+    <h1>МОДУЛЬ 5</h1>
+    <h2>Трансформеры, LLM и современные технологии (PEFT, RAG)</h2>
+    
+    <div class="module-info">
+        <span>Объём: 28 часов</span>
+        <span>Компетенции: LLM-5, DL-2, FC-2, PL-1</span>
+        <span>Уровень: Базовый/Средний</span>
+    </div>
+    
+    <h3>Содержание:</h3>
+    <ul>
+        <li>Занятие 5.1 (Б): Attention механизм, архитектура Transformer, GPT</li>
+        <li>Занятие 5.2 (Б): Hugging Face Transformers, BERT, GPT-2</li>
+        <li>Занятие 5.3 (С): Prompt Engineering, fine-tuning BERT, NER</li>
+        <li>Занятие 5.4 (Б/С): Работа с API современных LLM</li>
+        <li>Занятие 5.5 (Б): Архитектуры LLM: Llama, Mistral, Qwen; PEFT методы</li>
+        <li>Занятие 5.6 (Б): LoRA дообучение с библиотекой peft</li>
+        <li>Занятие 5.7 (С): QLoRA с 4-битной квантовацией</li>
+        <li>Занятие 5.8 (Б): RAG-системы, векторные БД (Chroma, FAISS)</li>
+        <li>Занятие 5.9 (Б): Построение RAG-системы с LangChain</li>
+        <li>Занятие 5.10 (С): Продвинутый RAG, гибридный поиск, RAGAS</li>
+    </ul>
+    
+    <div class="practice">
+        <strong>Практика:</strong> Hugging Face Transformers, LoRA/QLoRA дообучение, RAG с LangChain
+    </div>
+    
+    <div class="footer">
+        Рабочая программа дисциплины | Модуль 5
+    </div>
+</div>
+
+<!-- Слайд 7: Модуль 6 -->
+<div class="slide">
+    <h1>МОДУЛЬ 6</h1>
+    <h2>Генерация изображений: диффузионные модели</h2>
+    
+    <div class="module-info">
+        <span>Объём: 10 часов</span>
+        <span>Компетенции: DL-2, LLM-5, FC-2</span>
+        <span>Уровень: Базовый/Средний</span>
+    </div>
+    
+    <h3>Содержание:</h3>
+    <ul>
+        <li>Занятие 6.1 (Б): Прямой и обратный процесс диффузии, Stable Diffusion</li>
+        <li>Занятие 6.2 (Б): Пайплайн Stable Diffusion, генерация изображений</li>
+        <li>Занятие 6.3 (С): LoRA fine-tuning (DreamBooth) на кастомных данных</li>
+    </ul>
+    
+    <div class="practice">
+        <strong>Практика:</strong> Пайплайн Stable Diffusion, LoRA fine-tuning
+    </div>
+    
+    <div class="footer">
+        Рабочая программа дисциплины | Модуль 6
+    </div>
+</div>
+
+<!-- Слайд 8: Модуль 7 -->
+<div class="slide">
+    <h1>МОДУЛЬ 7</h1>
+    <h2>AI Agents и автономные системы</h2>
+    
+    <div class="module-info">
+        <span>Объём: 8 часов</span>
+        <span>Компетенции: LLM-5, FC-2, PL-1</span>
+        <span>Уровень: Базовый/Средний</span>
+    </div>
+    
+    <h3>Содержание:</h3>
+    <ul>
+        <li>Занятие 7.1 (Б): AI Agents: концепция, ReAct архитектура</li>
+        <li>Занятие 7.2 (Б): Создание AI-агента с LangChain</li>
+        <li>Занятие 7.3 (С): Мульти-агентная система с LangGraph/AutoGen</li>
+    </ul>
+    
+    <div class="practice">
+        <strong>Практика:</strong> Создание AI-агента, мульти-агентная система
+    </div>
+    
+    <div class="footer">
+        Рабочая программа дисциплины | Модуль 7
+    </div>
+</div>
+
+<!-- Слайд 9: Модуль 8 -->
+<div class="slide">
+    <h1>МОДУЛЬ 8</h1>
+    <h2>Развёртывание и оптимизация генеративных моделей</h2>
+    
+    <div class="module-info">
+        <span>Объём: 8 часов</span>
+        <span>Компетенции: LLM-5, DL-2, PL-1</span>
+        <span>Уровень: Базовый/Средний</span>
+    </div>
+    
+    <h3>Содержание:</h3>
+    <ul>
+        <li>Занятие 8.1 (Б): Этапы развёртывания, model quantization</li>
+        <li>Занятие 8.2 (Б): FastAPI + Docker, развёртывание на облачной платформе</li>
+        <li>Занятие 8.3 (С): Кэширование (Redis), мониторинг (Prometheus)</li>
+    </ul>
+    
+    <div class="practice">
+        <strong>Практика:</strong> FastAPI + Docker, кэширование, мониторинг
+    </div>
+    
+    <div class="footer">
+        Рабочая программа дисциплины | Модуль 8
+    </div>
+</div>
+
+<!-- Слайд 10: Модуль 9 -->
+<div class="slide">
+    <h1>МОДУЛЬ 9</h1>
+    <h2>Мультимодальный ИИ и этические аспекты</h2>
+    
+    <div class="module-info">
+        <span>Объём: 8 часов</span>
+        <span>Компетенции: LLM-5, FC-2, SS-1</span>
+        <span>Уровень: Базовый</span>
+    </div>
+    
+    <h3>Содержание:</h3>
+    <ul>
+        <li>Занятие 9.1 (Б): Мультимодальные модели (CLIP, GPT-4V), deepfakes, bias</li>
+        <li>Занятие 9.2 (С): Разработка мультимодального прототипа, этический аудит</li>
+    </ul>
+    
+    <div class="practice">
+        <strong>Практика:</strong> Кейсы применения, этический аудит
+    </div>
+    
+    <div class="footer">
+        Рабочая программа дисциплины | Модуль 9
+    </div>
+</div>
+
+<!-- Слайд 11: Экзамен -->
+<div class="slide">
+    <h1>ПРОМЕЖУТОЧНАЯ АТТЕСТАЦИЯ</h1>
+    <h2>Экзамен</h2>
+    
+    <div class="info-box">
+        <p><strong>Форма:</strong> устный экзамен (2 теоретических вопроса)</p>
+        <p><strong>Охват:</strong> все модули дисциплины</p>
+        <p><strong>Проверяемые компетенции:</strong> ML-2, ML-3, DL-2, LLM-5, FC-2, SS-1</p>
+    </div>
+    
+    <h3>Критерии оценки:</h3>
+    <table>
+        <tr><th>Баллы</th><th>Критерий</th></tr>
+        <tr><td>35-40</td><td>Полный самостоятельный верный ответ, концептуальное понимание, примеры</td></tr>
+        <tr><td>29-34</td><td>Достаточно полный ответ, небольшие неточности</td></tr>
+        <tr><td>22-28</td><td>Неполный ответ, трудности при обобщении</td></tr>
+        <tr><td>0-21</td><td>Разрозненные знания, ошибки в определениях</td></tr>
+    </table>
+    
+    <div class="footer">
+        Рабочая программа дисциплины | Аттестация
+    </div>
+</div>
+
+<!-- Слайд 12: Практические навыки -->
+<div class="slide">
+    <h1>ПРИМЕРЫ ПРАКТИЧЕСКИХ НАВЫКОВ</h1>
+    
+    <div class="skills">
+        <div class="skill-card">
+            <h4>ML Engineer</h4>
+            <ul>
+                <li>Реализация MLP, автоэнкодеров, GAN с нуля</li>
+                <li>Сравнение архитектур и оптимизаторов</li>
+                <li>Расчёт метрик качества (FID, MSE, F1-score)</li>
+            </ul>
+        </div>
+        
+        <div class="skill-card">
+            <h4>AI Engineer</h4>
+            <ul>
+                <li>LoRA/QLoRA дообучение LLM</li>
+                <li>Построение RAG-систем с LangChain</li>
+                <li>Развёртывание моделей (FastAPI, Docker)</li>
+            </ul>
+        </div>
+        
+        <div class="skill-card">
+            <h4>Prompt Engineer</h4>
+            <ul>
+                <li>Zero-Shot, Few-Shot, Chain-of-Thought промпты</li>
+                <li>Управление параметрами генерации</li>
+                <li>Итеративная отладка и оптимизация</li>
+            </ul>
+        </div>
+        
+        <div class="skill-card">
+            <h4>AI Researcher</h4>
+            <ul>
+                <li>Анализ архитектур трансформеров</li>
+                <li>Исследование диффузионных моделей</li>
+                <li>Эксперименты с мульти-агентными системами</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="footer">
+        Рабочая программа дисциплины | Навыки
+    </div>
+</div>
+
+<!-- Слайд 13: Технологический стек -->
+<div class="slide">
+    <h1>ТЕХНОЛОГИЧЕСКИЙ СТЕК ДИСЦИПЛИНЫ</h1>
+    
+    <h3>Языки и библиотеки:</h3>
+    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin: 15px 0;">
+        <span class="tag" style="background: #3776ab;">Python</span>
+        <span class="tag">NumPy</span>
+        <span class="tag">Pandas</span>
+        <span class="tag">PyTorch</span>
+        <span class="tag">Keras</span>
+        <span class="tag">Hugging Face Transformers</span>
+        <span class="tag" style="background: #0b8043;">LangChain</span>
+        <span class="tag">diffusers</span>
+        <span class="tag">FastAPI</span>
+        <span class="tag">Docker</span>
+    </div>
+    
+    <h3>Платформы и сервисы:</h3>
+    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin: 15px 0;">
+        <span class="tag" style="background: #f90;">Google Colab</span>
+        <span class="tag">Hugging Face Hub</span>
+        <span class="tag">vLLM</span>
+        <span class="tag">TGI</span>
+        <span class="tag">Chroma</span>
+        <span class="tag">FAISS</span>
+        <span class="tag">Pinecone</span>
+    </div>
+    
+    <div class="footer">
+        Рабочая программа дисциплины | Технологии
+    </div>
+</div>
+
+<!-- Слайд 14: Литература -->
+<div class="slide">
+    <h1>ЛИТЕРАТУРА И РЕСУРСЫ</h1>
+    
+    <h3>Основная литература:</h3>
+    <ol>
+        <li>Vaswani A. et al. "Attention Is All You Need" (2017)</li>
+        <li>Touvron H. et al. "Llama 2: Open Foundation and Fine-Tuned Chat Models" (2023)</li>
+        <li>Hu E.J. et al. "LoRA: Low-Rank Adaptation of Large Language Models" (2022)</li>
+        <li>Lewis P. et al. "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks" (2020)</li>
+        <li>Rombach R. et al. "High-Resolution Image Synthesis with Latent Diffusion Models" (2022)</li>
+    </ol>
+    
+    <h3>Онлайн-курсы:</h3>
+    <ul>
+        <li><strong>Hugging Face Course</strong> — https://huggingface.co/learn</li>
+        <li><strong>DeepLearning.AI Short Courses</strong> — https://www.deeplearning.ai/short-courses/</li>
+        <li><strong>LangChain Documentation</strong> — https://docs.langchain.com/</li>
+    </ul>
+    
+    <h3>Журналы:</h3>
+    <ul>
+        <li>Journal of Machine Learning Research (JMLR)</li>
+        <li>arXiv.org (cs.LG, cs.CL, cs.CV)</li>
+    </ul>
+    
+    <div class="footer">
+        Рабочая программа дисциплины | Литература
+    </div>
+</div>
+
+<!-- Слайд 15: Итоги -->
+<div class="slide">
+    <h1>ИТОГИ ОБУЧЕНИЯ</h1>
+    
+    <div class="info-box">
+        <p style="font-size: 12pt; margin-bottom: 20px;">После завершения дисциплины студент сможет:</p>
+        
+        <ul style="font-size: 11pt;">
+            <li>✅ Работать с современными LLM (Llama, Mistral, Qwen)</li>
+            <li>✅ Применять PEFT методы (LoRA, QLoRA) для дообучения моделей</li>
+            <li>✅ Строить RAG-системы с векторными базами данных</li>
+            <li>✅ Разрабатывать AI Agents с использованием инструментов</li>
+            <li>✅ Развёртывать генеративные модели в production</li>
+            <li>✅ Оценивать качество генеративных моделей</li>
+            <li>✅ Анализировать этические риски и bias в ИИ-системах</li>
+        </ul>
+    </div>
+    
+    <div class="header-slide" style="margin-top: 30px;">
+        <p style="font-size: 12pt;">РАБОЧАЯ ПРОГРАММА ДИСЦИПЛИНЫ</p>
+        <p style="font-size: 14pt; font-weight: bold;">Генеративный искусственный интеллект и машинное обучение</p>
+        <p style="font-size: 12pt; margin-top: 15px;">2026</p>
+    </div>
+    
+    <div class="footer">
+        Рабочая программа дисциплины | Итоги
+    </div>
+</div>
+
+</body>
+</html>
