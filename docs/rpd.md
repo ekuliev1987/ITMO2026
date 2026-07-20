@@ -68,11 +68,16 @@
 
 1. Машинное обучение: учебник / Е. Ю. Бутырский, В. В. Цехановский, Н. А. Жукова [и др.]. – Москва: Директ-Медиа, 2023.
 2. Кревецкий, А. В. Основы технологий искусственного интеллекта: учебное пособие / А. В. Кревецкий [и др.]. – Йошкар-Ола: Поволжский государственный технологический университет, 2023.
-3. Vaswani A. et al. "Attention Is All You Need" // Advances in Neural Information Processing Systems. – 2017.
-4. Touvron H. et al. "Llama 2: Open Foundation and Fine-Tuned Chat Models" // arXiv preprint arXiv:2307.09288. – 2023.
-5. Hu E.J. et al. "LoRA: Low-Rank Adaptation of Large Language Models" // ICLR. – 2022.
-6. Lewis P. et al. "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks" // NeurIPS. – 2020.
+3. Goodfellow I. et al. "Generative Adversarial Nets" // Advances in Neural Information Processing Systems. – 2014.
+4. Kingma D.P. "Auto-Encoding Variational Bayes" // International Conference on Learning Representations. – 2014.
+5. Vaswani A. et al. "Attention Is All You Need" // Advances in Neural Information Processing Systems. – 2017.
+6. Ho J. et al. "Denoising Diffusion Probabilistic Models" // Advances in Neural Information Processing Systems. – 2020.
 7. Rombach R. et al. "High-Resolution Image Synthesis with Latent Diffusion Models" // CVPR. – 2022.
+8. Brown T. et al. "Language Models are Few-Shot Learners" // Advances in Neural Information Processing Systems. – 2020.
+9. Touvron H. et al. "Llama 2: Open Foundation and Fine-Tuned Chat Models" // arXiv preprint arXiv:2307.09288. – 2023.
+10. Hu E.J. et al. "LoRA: Low-Rank Adaptation of Large Language Models" // ICLR. – 2022.
+11. Lewis P. et al. "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks" // NeurIPS. – 2020.
+12. Yao S. et al. "ReAct: Synergizing Reasoning and Acting in Language Models" // ICLR. – 2023.
 
 ### Онлайн-курсы и ресурсы
 
@@ -84,10 +89,12 @@
 
 ### Периодические издания
 
-- Научный журнал «Моделирование и анализ данных»
-- Научный журнал «Системы анализа и обработки данных»
-- Научный журнал «Вестник компьютерных и информационных технологий»
 - Journal of Machine Learning Research (JMLR)
+- Transactions of the Association for Computational Linguistics (TACL)
+- Journal of Artificial Intelligence Research (JAIR)
+- Machine Learning (Springer)
+- Neural Networks (Elsevier)
+- Nature Machine Intelligence
 - arXiv.org (cs.LG, cs.CL, cs.CV)
 
 ## 7. Методические указания для обучающихся
