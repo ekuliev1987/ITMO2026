@@ -7,6 +7,10 @@
 ## Быстрая навигация
 
 - [Рабочая программа дисциплины](docs/rpd.md)
+- [Матрица соответствия тем и компетенций](docs/matrix.md)
+- [Дескрипторы уровней освоения](docs/descriptors.md)
+- [Глоссарий терминов](docs/glossary.md)
+- [📋 TODO — План доработок](TODO.md)
 - [Методические указания](methodical-guidelines/README.md)
 - [Информационные ресурсы](resources/README.md)
 - [Команда проекта](team/README.md)
@@ -71,9 +75,14 @@
 
 ## 5. Методические материалы
 
+### Для обучающихся
 - [Рекомендации обучающимся](methodical-guidelines/students/README.md)
-- [Рекомендации преподавателям по оцениванию](methodical-guidelines/teachers-assessment/README.md)
-- [Рекомендации преподавателям по использованию ресурсов](methodical-guidelines/teachers-resources/README.md)
+- [Чек-листы самопроверки](methodical-guidelines/students/checklists/README.md)
+
+### Для преподавателей
+- [Рекомендации по оцениванию](methodical-guidelines/teachers-assessment/README.md)
+- [Рубрикаторы](methodical-guidelines/teachers-assessment/rubrics/)
+- [Рекомендации по ресурсам](methodical-guidelines/teachers-resources/README.md)
 
 ## 6. Технологический стек
 
