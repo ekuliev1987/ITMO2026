@@ -1,0 +1,50 @@
+# Check broken links in Markdown files
+
+name: Check Links
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - '**/*.md'
+  pull_request:
+    branches: [main, master]
+    paths:
+      - '**/*.md'
+  schedule:
+    - cron: '0 0 * * 0'  # Еженедельно в воскресенье в 00:00 UTC
+  workflow_dispatch:  # Возможность запустить вручную
+
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check Markdown links
+        uses: lycheeverse/lychee-action@v1
+        with:
+          args: >
+            --verbose
+            --no-progress
+            --require-https
+            --timeout 10
+            --user-agent 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+            '**/*.md'
+          output: lychee/results.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Print results
+        if: failure()
+        run: cat lychee/results.md
+
+      - name: Upload results as artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: link-check-results
+          path: lychee/results.md
+          retention-days: 7
